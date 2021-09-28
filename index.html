@@ -14,6 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
+        <!--Jquery-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
     </head>
@@ -25,18 +26,18 @@
                 <ul>
                     <li>
                         <label for="nombreCompleto" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombreCompleto" placeholder="Juan Eduardo Perez Gonzalez" pattern="[a-zA-Z0-9]+" required>
+                        <input type="text" class="form-control" id="nombreCompleto" placeholder="Juan Eduardo Perez Gonzalez" pattern="[A-Za-z ]{1,32}" required>
                         <div class="valid-feedback">
                             OK!
                         </div>
                         <div class="invalid-feedback">
-                            El nombre es obligatorio.
+                            Ingrese un nombre valido.
                         </div>
                     </li>
 
                     <li>
                         <label for="rut" class="form-label">RUT</label>
-                        <input type="text" class="form-control" id="rut" placeholder="12345678-9" required>
+                        <input type="text" class="form-control" id="rut" placeholder="12345678-9" pattern="\d{3,8}-[\d|kK]{1}" required>
 
                         <div class="valid-feedback">
                             OK!
@@ -59,7 +60,7 @@
 
                     <li>
                         <label for="Telefono" class="form-label">Teléfono Movil</label>
-                        <input type="number" class="form-control" id="telefono" maxlength="9" placeholder="912345678" required>
+                        <input type="number" class="form-control" id="telefono" placeholder="912345678" pattern="[+ 0-9]{9}" required>
                         <div class="valid-feedback">
                             OK!
                         </div>
@@ -116,15 +117,14 @@
                         <input type="checkbox" id="opcion4"> Sistemas Operativos
                         </div>
                         <br>
-                        Otro <input type="text" class="form-control" id="Otrodif" placeholder="...">
+                        Otro <input type="text" class="form-control" id="Otrodif" placeholder="..." required>
 
                     </li>
 
                     <li>
                         <label for="opinion" class="form-label">Queremos conocer su opinión acerca de la escuela</label>
                         <br>
-                        <textarea id="opinion" maxlength="500" cols="50" rows="3" placeholder="...">
-                        </textarea>
+                        <textarea id="opinion" maxlength="500" cols="50" rows="3" placeholder="..." required></textarea>
                     </li>
 
                     <li>
@@ -134,27 +134,11 @@
 
                     <li>
                         <br>
-                        <button id="Enviar" class="btn btn-primary" type="submit" onclick="restric()">Enviar Datos</button> 
+                        <button id="Enviar" class="btn btn-primary" type="submit" >Enviar Datos</button> 
                     </li>
-                    
-                    <script type="text/javascript">
-                        document.getElementById("telefono")
-                        document.getElementById("rut")
-                        document.getElementById("limpiar"); 
-                        function restric(){
-                            if(telefono.value.length != 9){
-                                alert("El numero debe ser de 9 digitos.");
-                            }
-                            if (rut.val().indexOf(".") !== -1) {
-                                alert("El rut no debe contener puntos.");
-                            }
-                        }
-                        
-                        function limpiarDatos(){
-                          document.getElementById("tarea2").reset();
-                        }
-
-                        $(document).ready(function () {
+                    <!--script para verificar que almenos se marque una casilla en el formulario con Jquery-->
+                    <script>
+                    $(document).ready(function () {
                             $('#Enviar').click(function() {
                               checked = $("input[type=checkbox]:checked").length;
                         
@@ -166,7 +150,6 @@
                             });
                         });
                     </script>
-                    
 
                 </ul>
             </div>
@@ -174,7 +157,8 @@
 
         </div>
 
-        
+        <script src="js/restricciones.js" async defer></script>
+        <script src="js/limpiarDatos.js"></script>
         <script data-main="js/inicio" src="js/require-jquery.js"></script>
         
     </body>

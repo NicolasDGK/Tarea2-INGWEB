@@ -6,6 +6,8 @@ form ul {
   padding: 50px;
   background-color: grey;
   list-style-type: none;
+  border: black 10px;
+  border-style: solid;
 }
 
 h1 {

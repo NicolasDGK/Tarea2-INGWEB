@@ -5,17 +5,17 @@ tarea2.addEventListener("submit", function (event) {
     var rut = document.getElementById("rut");
     var correo = document.getElementById("correo");
     var telefono = document.getElementById("telefono");
-    var largotelefono = telefono.toString().trim();
+    var opinion = document.getElementById("opinion");
     console.log(nombreCompleto.value);
     console.log(rut.value);
     console.log(correo.value);
     console.log(telefono.value);
-    if (largotelefono.length != 9) {
-        console.log("el numero telefono debe tener 9 digitos");
+    console.log(opinion.value);
+    rut = String(rut);
+    if (telefono.value.length != 9) {
+        alert("El numero debe ser de 9 digitos.");
+    }
+    if (opinion.value.length <= 0) {
+        alert("Debe dar su opinion acerca de la escuela");
     }
 });
-var restricciones = {
-    nombreCompleto: /^[a-zA-ZÄ-ÿ\s]+$/,
-    rut: /^\d{8,9}$/,
-    telefono: /^\d{9}$/
-};
