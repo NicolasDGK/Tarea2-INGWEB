@@ -18,4 +18,7 @@ tarea2.addEventListener("submit", function (event) {
     if (opinion.value.length <= 0) {
         alert("Debe dar su opinion acerca de la escuela");
     }
+    if (opinion.value.length > 500) {
+        alert("Su opinion no debe contener más de 500 caracteres");
+    }
 });
